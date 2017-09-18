@@ -1,4 +1,4 @@
-package com.example.AutomationApp.security;
+package com.example.AutomationApp.config;
 
 import javax.sql.DataSource;
 
