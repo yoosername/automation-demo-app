@@ -10,7 +10,7 @@ var Automation = React.createClass({
         type: 'DELETE',
         success: function(result) {
           self.setState({display: false});
-          toastr.info(self.props.automation.name + " successfully deleted");
+          toastr.info("\"" + self.props.automation.name + "\"" + " successfully deleted");
         },
         error: function(xhr, ajaxOptions, thrownError) {
           toastr.error(xhr.responseJSON.message);

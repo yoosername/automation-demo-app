@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.unbescape:unbescape:1.1.5.RELEASE">
+    <CLASSES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/unbescape/unbescape/1.1.5.RELEASE/unbescape-1.1.5.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/unbescape/unbescape/1.1.5.RELEASE/unbescape-1.1.5.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/unbescape/unbescape/1.1.5.RELEASE/unbescape-1.1.5.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

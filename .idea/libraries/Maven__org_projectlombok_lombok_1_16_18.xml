@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.projectlombok:lombok:1.16.18">
+    <CLASSES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/projectlombok/lombok/1.16.18/lombok-1.16.18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

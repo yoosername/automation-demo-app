@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.boot:spring-boot-starter-data-rest:2.0.0.M4">
+    <CLASSES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/springframework/boot/spring-boot-starter-data-rest/2.0.0.M4/spring-boot-starter-data-rest-2.0.0.M4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/springframework/boot/spring-boot-starter-data-rest/2.0.0.M4/spring-boot-starter-data-rest-2.0.0.M4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/springframework/boot/spring-boot-starter-data-rest/2.0.0.M4/spring-boot-starter-data-rest-2.0.0.M4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

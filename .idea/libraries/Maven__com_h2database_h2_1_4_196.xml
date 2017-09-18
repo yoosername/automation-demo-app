@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.h2database:h2:1.4.196">
+    <CLASSES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/com/h2database/h2/1.4.196/h2-1.4.196.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/com/h2database/h2/1.4.196/h2-1.4.196-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/com/h2database/h2/1.4.196/h2-1.4.196-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.webjars:react:15.0.1">
+    <CLASSES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/webjars/react/15.0.1/react-15.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/webjars/react/15.0.1/react-15.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar:///Applications/Atlassian/atlassian-plugin-sdk-6.2.6/apache-maven-3.2.1/repository/org/webjars/react/15.0.1/react-15.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
