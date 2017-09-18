@@ -1,7 +1,25 @@
+var AutomationCreateNew = React.createClass({
+
+  render: function() {
+
+    return (
+
+        <div className="card">
+          <div className="card-block">
+            <h3 className="card-title">Create New Automation</h3>
+            <p className="card-text">Go through a few steps to configure your automation</p>
+            <a href="#" className="btn btn-success">Create</a>
+          </div>
+        </div>
+
+    );
+  }
+});
+
 var Automation = React.createClass({
 
   getInitialState: function() {
-    return {display: true };
+    return {display: true};
   },
   handleDelete() {
     var self = this;
@@ -21,38 +39,52 @@ var Automation = React.createClass({
 
     if (this.state.display==false) return null;
     else return (
-      <tr>
-          <td>{this.props.automation.name}</td>
-          <td>
-            <button className="btn btn-info" onClick={this.handleDelete}>Delete</button>
-          </td>
-      </tr>
+
+        <div className="card">
+          <div className="card-block" className="{(self.props.active)?card-active:;}">
+            <h3 className="card-title">#{this.props.automation.name}</h3>
+            <p className="card-text">The actual automation description will go here eventually</p>
+            <a href="#" className="btn btn-danger" onClick={this.handleDelete}>Delete</a>
+          </div>
+        </div>
+
     );
   }
 });
 
-var AutomationTable = React.createClass({
+var AutomationList = React.createClass({
 
   render: function() {
 
-    var rows = [];
-    this.props.automations.forEach(function(automation) {
-      rows.push(
-        <Automation automation={automation} key={automation.name} />);
-    });
+        var components = [];
+        this.props.automations.forEach(function(automation) {
+          components.push(<Automation automation={automation} key={automation.name} />);
+        });
 
-    return (
-      <table className="table table-striped">
-          <thead>
-              <tr>
-                  <th>Name</th>
-                  <th>Delete</th>
-              </tr>
-          </thead>
-          <tbody>{rows}</tbody>
-      </table>
-    );
-  }
+        // Group into chunks of 4
+        var groups = [];
+        var children = [];
+        var inc = 0;
+
+        while(components.length > 0) {
+            children.push(components.shift());
+            if (children.length === 4) {
+                groups.push(<div className="row" key={inc++}>{children}</div>);
+                children = [];
+            }
+        }
+
+        // remaining children
+        if (children.length > 0 ) {
+            groups.push(<div className="row" key={inc++}>{children}</div>);
+        }
+
+        return (
+          <div className="container">
+            {groups}
+          </div>
+        );
+    }
 });
 
 var App = React.createClass({
@@ -76,8 +108,13 @@ var App = React.createClass({
     this.loadAutomationsFromServer();
   },
 
-  render() {
-    return ( <AutomationTable automations={this.state.automations} /> );
+  render: function() {
+    return (
+        <div>
+        <AutomationCreateNew />
+        <AutomationList automations={this.state.automations} />
+        </div>
+    );
   }
 });
 

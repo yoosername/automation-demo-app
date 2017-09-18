@@ -1,0 +1,10 @@
+body {
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}
+
+.card {
+    padding: 15px;
+    max-width: 15em;
+    margin: 5px;
+}
