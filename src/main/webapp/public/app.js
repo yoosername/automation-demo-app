@@ -1,26 +1,42 @@
-var AutomationCreateNew = React.createClass({
+'use strict';
 
-  render: function() {
+const Router = ReactRouterDOM.BrowserRouter;
+const Route = ReactRouterDOM.Route;
+const Link = ReactRouterDOM.Link;
+
+class AutomationCreateNew extends React.Component {
+
+  render() {
 
     return (
 
-        <div className="card">
-          <div className="card-block">
-            <h3 className="card-title">Create New Automation</h3>
-            <p className="card-text">Go through a few steps to configure your automation</p>
-            <a href="#" className="btn btn-success">Create</a>
-          </div>
+        <div className="container">
+            <div className="row">
+                <div className="col-3">
+                    <div className="card">
+                      <div className="card-block">
+                        <h3 className="card-title">Create New Automation</h3>
+                        <p className="card-text">Go through a few steps to configure your automation</p>
+                        <Link to={'/create'} className="btn btn-success">Create</Link>
+                      </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
     );
   }
-});
+};
 
-var Automation = React.createClass({
+class Automation extends React.Component {
 
-  getInitialState: function() {
-    return {display: true};
-  },
+  constructor(props) {
+      super(props);
+      this.state = {
+        display: true
+      };
+   }
+
   handleDelete() {
     var self = this;
     $.ajax({
@@ -34,8 +50,9 @@ var Automation = React.createClass({
           toastr.error(xhr.responseJSON.message);
         }
     });
-  },
-  render: function() {
+  }
+
+  render() {
 
     if (this.state.display==false) return null;
     else return (
@@ -50,11 +67,12 @@ var Automation = React.createClass({
 
     );
   }
-});
 
-var AutomationList = React.createClass({
+};
 
-  render: function() {
+class AutomationList extends React.Component {
+
+  render() {
 
         var components = [];
         this.props.automations.forEach(function(automation) {
@@ -66,8 +84,12 @@ var AutomationList = React.createClass({
         var children = [];
         var inc = 0;
 
+        var createCol = (elem) => (
+            <div className="col-3" key={elem.key}>{elem}</div>
+        );
+
         while(components.length > 0) {
-            children.push(components.shift());
+            children.push(createCol(components.shift()));
             if (children.length === 4) {
                 groups.push(<div className="row" key={inc++}>{children}</div>);
                 children = [];
@@ -84,12 +106,87 @@ var AutomationList = React.createClass({
             {groups}
           </div>
         );
-    }
-});
+   }
 
-var App = React.createClass({
+};
 
-  loadAutomationsFromServer: function() {
+class ApplicationContainer extends React.Component {
+
+  render() {
+        return (
+          <div style={{
+            display: "flex"
+          }}>
+            {this.props.children}
+          </div>
+        );
+   }
+
+};
+
+class SidebarStepper extends React.Component {
+
+  render() {
+        return (
+          <div style={{
+              width: "33vw",
+              height: "100vh",
+              overflow: "auto"
+            }}>
+              <div className="stepper-container vertical">
+                  <div className="stepper">
+                      <div className="step active">
+                          <div className="step-inner">
+                              <div className="step-circle"><span><i className="fa fa-fw fa-search"></i></span></div>
+                          </div>
+                          <div className="step-content">
+                              <h3>Pick a Data Source</h3>
+                              <p> Select your data source here </p>
+                          </div>
+                      </div>
+                      <div className="step">
+                          <div className="step-inner">
+                              <div className="step-circle"><span><i className="fa fa-fw fa-plus-circle"></i></span></div>
+                          </div>
+                          <div className="step-content">
+                              <h3>Add New Component</h3>
+                              <p> Add a new filter or action component to apply to your data</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        );
+   }
+
+};
+
+class Main extends React.Component {
+
+  render() {
+        return (
+          <div style={{
+              flex: "1",
+              height: "100vh",
+              overflow: "auto"
+            }}>
+            {this.props.children}
+          </div>
+        );
+   }
+
+};
+
+class App extends React.Component {
+
+  constructor(props) {
+      super(props);
+      this.state = {
+        automations: []
+      };
+   }
+
+  loadAutomationsFromServer() {
 
     var self = this;
     $.ajax({
@@ -98,24 +195,35 @@ var App = React.createClass({
         self.setState({ automations: data._embedded.automations });
       });
 
-  },
+  }
 
-  getInitialState: function() {
-    return { automations: [] };
-  },
-
-  componentDidMount: function() {
+  componentDidMount() {
     this.loadAutomationsFromServer();
-  },
+  }
 
-  render: function() {
+  render() {
     return (
-        <div>
-        <AutomationCreateNew />
-        <AutomationList automations={this.state.automations} />
-        </div>
+        <Router>
+            <ApplicationContainer>
+                <Route exact={true} path="/" render={() => (
+                    <Main>
+                        <AutomationCreateNew />
+                        <AutomationList automations={this.state.automations} />
+                    </Main>
+                )}/>
+                <Route path="/create" render={() => (
+                    <div style={{display: "flex"}}>
+                        <SidebarStepper />
+                        <Main>
+                            <div style={{padding:"3rem"}}>Some form will go here</div>
+                        </Main>
+                    </div>
+                )}/>
+            </ApplicationContainer>
+        </Router>
     );
   }
-});
+
+};
 
 ReactDOM.render(<App />, document.getElementById('root') );
